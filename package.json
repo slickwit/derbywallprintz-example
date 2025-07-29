@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "envalid": "^8.1.0",
     "lucide-react": "^0.533.0",
     "next": "15.4.4",
+    "plaiceholder": "^3.0.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zod": "^4.0.13"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
