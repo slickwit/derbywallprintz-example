@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Phone, Mail, MapPin, Search } from "lucide-react";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -31,20 +32,22 @@ export default function RootLayout({
 					<header className="bg-white border-b sticky top-0 z-50">
 						<div className="container mx-auto px-4">
 							<div className="flex items-center justify-between py-4">
-								<div className="flex items-center space-x-2">
-									<div className="w-8 h-8 bg-black rounded flex items-center justify-center">
-										<div className="w-6 h-6 bg-white rounded"></div>
+								<Link href="/">
+									<div className="flex items-center space-x-2">
+										<div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+											<div className="w-6 h-6 bg-white rounded"></div>
+										</div>
+										<span className="font-bold text-black text-xl">WALLPRINTZ</span>
 									</div>
-									<span className="font-bold text-black text-xl">WALLPRINTZ</span>
-								</div>
+								</Link>
 
 								<nav className="hidden md:flex space-x-8">
-									<a href="#" className="text-gray-700 hover:text-blue-600">
+									<Link href="/" className="text-gray-700 hover:text-blue-600">
 										Home
-									</a>
-									<a href="#" className="text-blue-600 font-medium">
+									</Link>
+									<Link href="/" className="text-gray-700 hover:text-blue-600">
 										Explore Wallpaper
-									</a>
+									</Link>
 									<a href="#" className="text-gray-700 hover:text-blue-600">
 										About Us
 									</a>
