@@ -13,7 +13,7 @@ export default function ImgContainer({ photo }: Props) {
 
 	return (
 		<div className="w-[375px] justify-self-center relative" style={{ gridRow: `span ${photoSpans}` }}>
-			<Link href={photo.url} target="_blank" className="grid place-content-center relative">
+			<Link href="/detail" className="grid place-content-center relative">
 				<div className="rounded-md overflow-hidden">
 					<Image
 						src={photo.src.large}
