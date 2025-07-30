@@ -4,27 +4,18 @@ import type { ImagesResults } from "@/models/Images";
 import ImgContainer from "./image-container";
 import addBlurredDataUrls from "@/lib/getBase64";
 
-export default async function Gallery() {
-	// let url;
-	// if (topic === "curated" && page) {
-	// 	// browsing beyond home
-	// 	url = `https://api.pexels.com/v1/curated?page=${page}`;
-	// } else if (topic === "curated") {
-	// 	// home
-	// 	url = "https://api.pexels.com/v1/curated";
-	// } else if (!page) {
-	// 	// 1st page of search results
-	// 	url = `https://api.pexels.com/v1/search?query=${topic}`;
-	// } else {
-	// 	// search result beyond 1st page
-	// 	url = `https://api.pexels.com/v1/search?query=${topic}&page=${page}`;
-	// }
+const wallpaperTerms = ["nature", "abstract", "city", "space", "minimal"];
 
-	const images: ImagesResults | undefined = await fetchImages("https://api.pexels.com/v1/search?query=wallpaper&per_page=25");
+export default async function Gallery() {
+	const randomTerm = wallpaperTerms[Math.floor(Math.random() * wallpaperTerms.length)];
+	const randomPage = Math.floor(Math.random() * 10) + 1;
+	const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(randomTerm + " wallpaper")}&per_page=25&page=${randomPage}`;
+	console.log(url);
+	// "https://api.pexels.com/v1/search?query=wallpaper&per_page=25"
+	const images: ImagesResults | undefined = await fetchImages(url);
 
 	if (!images || images.per_page === 0) return <h2 className="m-4 text-2xl font-bold">No Images Found</h2>;
 	const photosWithBlur = await addBlurredDataUrls(images);
-	console.log(photosWithBlur);
 
 	return (
 		<>
