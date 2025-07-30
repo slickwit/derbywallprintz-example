@@ -1,26 +1,7 @@
-"use client";
-import Image from "next/image";
 import { Phone, Mail, MapPin, Search } from "lucide-react";
+import Gallery from "./components/gallery";
 
-const wallpapers = [
-	{
-		id: 1,
-		name: "Flying through glow blue futuristic digital technology landscape. Glow colourful particle background",
-		price: "£34/m²",
-		image: "1.jpg",
-	},
-	{ id: 2, name: "Underwater Dream VI", price: "£34/m²", image: "2.jpg" },
-	{ id: 3, name: "Elegant Flight", price: "£34/m²", image: "3.jpg" },
-	{ id: 4, name: "Blurred", price: "£34/m²", image: "4.jpg" },
-	{ id: 5, name: "Intangible", price: "£34/m²", image: "5.jpg" },
-	{ id: 6, name: "Yellow Light", price: "£34/m²", image: "6.jpg" },
-	{ id: 7, name: "Colourful Garden", price: "£34/m²", image: "7.jpg" },
-	{ id: 8, name: "Angular Shapes", price: "£34/m²", image: "8.jpg" },
-	{ id: 9, name: "Colourful Ink in Water", price: "£34/m²", image: "9.jpg" },
-	{ id: 10, name: "Avenues", price: "£34/m²", image: "10.jpg" },
-];
-
-export default function Gallery() {
+export default function Home() {
 	return (
 		<div className="min-h-screen bg-white">
 			{/* Sticky Header */}
@@ -147,58 +128,6 @@ export default function Gallery() {
 
 			{/* Wallpaper Gallery Grid */}
 			<Gallery />
-			<main className="py-8">
-				<div className="container mx-auto px-4">
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-						{wallpapers.map((wallpaper) => (
-							<div key={wallpaper.id} className="group cursor-pointer">
-								<div className="relative overflow-hidden">
-									{/* Room mockup image */}
-									<div className="relative aspect-[4/3] bg-gray-200">
-										<Image
-											src={`/assets/${wallpaper.image}`}
-											alt={wallpaper.name}
-											fill
-											className="object-cover"
-											onError={(e) => {
-												if ("src" in e.target) {
-													e.target.src =
-														"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxyZWN0IHg9IjE3NSIgeT0iMTI1IiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIGZpbGw9IiNEMUQ1REIiLz4KPC9zdmc+";
-												}
-											}}
-										/>
-
-										{/* Heart icon */}
-										<button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
-											<svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={1.5}
-													d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-												/>
-											</svg>
-										</button>
-
-										{/* Sample watermark */}
-										<div className="absolute bottom-3 left-3 bg-white/90 px-2 py-1 rounded text-xs font-medium text-gray-600">
-											SAMPLE
-										</div>
-									</div>
-
-									{/* Product info */}
-									<div className="p-4">
-										<h3 className="font-medium text-gray-900 mb-1 line-clamp-1">{wallpaper.name}</h3>
-										<p className="text-sm text-gray-600">
-											Price from: <span className="font-medium">{wallpaper.price}</span>
-										</p>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</main>
 
 			{/* Footer */}
 			<footer className="bg-gray-900 text-white py-12 mt-16">

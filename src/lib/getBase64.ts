@@ -1,3 +1,4 @@
+"use server";
 import { getPlaiceholder } from "plaiceholder";
 import type { Photo, ImagesResults } from "@/models/Images";
 
@@ -12,8 +13,6 @@ async function getBase64(imageUrl: string) {
 		const buffer = await res.arrayBuffer();
 
 		const { base64 } = await getPlaiceholder(Buffer.from(buffer));
-
-		console.log(base64);
 
 		return base64;
 	} catch (e) {
